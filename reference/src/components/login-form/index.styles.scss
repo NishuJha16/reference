@@ -1,0 +1,18 @@
+.login-form {
+  display: flex;
+
+  .section {
+    flex: 1;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    padding: 1.5rem;
+    box-sizing: border-box;
+
+    .sub-section {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }
+}
