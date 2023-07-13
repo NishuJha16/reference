@@ -9,7 +9,8 @@ export const userMetaData = [
         email: "nishu.kumari@hexaware.com",
         mobile: "8825147844",
         employeeId: "5655657665775",
-        experience: "1 Year"
+        experience: "1 Year",
+        profileImage:"https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
     },
     {
         password: "Nilesh@123",
@@ -19,7 +20,8 @@ export const userMetaData = [
         email: "nilesh.sinha@hexaware.com",
         mobile: "8825147844",
         employeeId: "16872618736826",
-        experience: "3 Years"
+        experience: "3 Years",
+        profileImage:"https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
     },
     {
         password: "Anjana@123",
@@ -29,6 +31,7 @@ export const userMetaData = [
         email: "anjana.balachandran@hexaware.com",
         mobile: "8051749635",
         employeeId: "765655656578",
-        experience: "5 Years"
+        experience: "5 Years",
+        profileImage:"https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50"
     }
 ]

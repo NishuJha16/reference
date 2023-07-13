@@ -1,0 +1,28 @@
+@import "../../helpers/variables.scss";
+.navbar {
+  display: flex;
+  height: 70px;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary;
+  .right-section {
+    display: flex;
+    gap: 1.5rem;
+
+    .profile {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .logout {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
