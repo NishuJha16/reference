@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import "./index.style.scss";
 
-const CustomTable = ({ columns, rows }) => {
+const CustomTable = ({ columns, rows, onRowClick }) => {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
@@ -50,7 +50,13 @@ const CustomTable = ({ columns, rows }) => {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
+                  <TableRow
+                    hover
+                    role="checkbox"
+                    tabIndex={-1}
+                    key={row.code}
+                    onClick={() => onRowClick?.(row)}
+                  >
                     {columns.map((column) => {
                       const value = row[column.id];
                       return (

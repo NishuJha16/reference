@@ -1,0 +1,19 @@
+.search-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    .search-result{
+        display: flex;
+        justify-content: space-between;
+        .sr-left{
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            .header{
+                font-family: "Montserrat";
+                font-size: 1.125rem;
+                font-weight: 600;
+            }
+        }
+    }
+}

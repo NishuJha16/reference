@@ -1,0 +1,24 @@
+.card {
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid #d1d6df;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  .card-title {
+    font-family: "Montserrat";
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 354px;
+    .count {
+      font-family: "Montserrat";
+      font-size: 2rem;
+      font-weight: 500;
+    }
+  }
+}
