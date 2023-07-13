@@ -4,3 +4,10 @@ export const availableRoles = {
    HRBP:"HRBP",
    //other roles
 }
+
+export const requestStatus = {
+  APPROVED: "Approved",
+  REJECTED: "Rejected",
+  OPEN: "Open",
+  //other roles
+};

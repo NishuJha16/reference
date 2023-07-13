@@ -6,4 +6,5 @@ html {
   box-sizing: border-box;
   height: 100vh;
   font-family: "Roboto";
+  background-color: rgb(246, 252, 255);
 }

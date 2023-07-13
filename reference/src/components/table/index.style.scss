@@ -1,0 +1,9 @@
+@import "../../helpers/variables.scss";
+.table-wrapper {
+  border-radius: 1rem;
+  overflow: hidden;
+  .table-header {
+    background-color: $primary;
+    color: $white;
+  }
+}

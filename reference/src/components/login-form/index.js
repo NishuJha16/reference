@@ -2,16 +2,26 @@ import React, { useState } from "react";
 import "./index.style.scss";
 import LoginSideImage from "../../icons/login-left.svg";
 import HexawareLogo from "../../icons/logo.svg";
-import { Button, TextField, Typography } from "@mui/material";
+import {
+  Button,
+  IconButton,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { userMetaData } from "../../dummy-data/login";
 import { useNavigate } from "react-router-dom";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 
 const LoginForm = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const handleMouseDownPassword = () => setShowPassword(!showPassword);
   const handleLogin = () => {
     const isValidUser = userMetaData.filter(
       (user) =>
@@ -47,21 +57,33 @@ const LoginForm = () => {
         </div>
         <div className="sub-section">
           <TextField
-            id="filled-hidden-label-small"
             onChange={(event) => setUserName(event.target.value)}
             value={userName}
-            label="Employee ID/ Email"
+            // label="Employee ID/ Email"
             variant="outlined"
             size="small"
           />
           <TextField
-            id="filled-hidden-label-small"
             onChange={(event) => setPassword(event.target.value)}
             value={password}
-            label="Password"
-            type="password"
+            label="password"
             variant="outlined"
             size="small"
+            type={showPassword ? "text" : "password"}
+            shrink={true}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
           {error && (
             <Typography variant="caption" className="error-text">
