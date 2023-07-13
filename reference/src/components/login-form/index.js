@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import "./index.style.scss";
 import LoginSideImage from "../../icons/login-left.svg";
 import HexawareLogo from "../../icons/logo.svg";
