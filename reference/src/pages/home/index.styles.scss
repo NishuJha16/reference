@@ -1,0 +1,10 @@
+.home-page{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    .request-table{
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0px 2px 16px 0px rgba(44, 116, 214, 0.04);
+    }
+}

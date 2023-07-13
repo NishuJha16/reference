@@ -1,0 +1,26 @@
+@import "../../helpers/variables.scss";
+.tag {
+  display: flex;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  box-sizing: border-box;
+  color: $primary;
+  background-color: $primaryLight;
+  border-radius: 8px;
+  width: fit-content;
+}
+.success{
+    color:$greenDark;
+    background-color: $greenLight;
+}
+
+.error{
+    color:$red;
+    background-color: $redLight;
+}
+
+.warning{
+    color:$yellowDark;
+    background-color: $yellowLight;
+}
