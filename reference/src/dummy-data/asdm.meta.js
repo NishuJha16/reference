@@ -94,8 +94,9 @@ export const raisedRetentionRequests = [
   {
     profile: {
       name: "Sophia Thompson",
-      profileImage: "https://example.com/profiles/sophiathompson.jpg",
-      employeeId: "7359146208",
+      profileImage:
+        "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/short/linkedin-profile-picture-maker/dummy_image/thumb/004.webp",
+      employeeId: "73596746208",
     },
     id: 11,
     email: "sophia.thompson@example.com",
@@ -237,7 +238,8 @@ export const raisedRetentionRequests = [
   {
     profile: {
       name: "Sophia Thompson",
-      profileImage: "https://example.com/profiles/sophiathompson.jpg",
+      profileImage:
+        "https://d2v5dzhdg4zhx3.cloudfront.net/web-assets/images/storypages/short/linkedin-profile-picture-maker/dummy_image/thumb/004.webp",
       employeeId: "7359146208",
     },
     id: 11,
@@ -245,6 +247,42 @@ export const raisedRetentionRequests = [
     grade: "G4",
     experience: "11 years",
     status: requestStatus.OPEN,
+    designation: "Senior Software Engineer",
+    phone: "+1 9012345678",
+    reportingManager: "Christopher Davis",
+    projects: "ABC Corp, LMN Corp",
+    requestStatusStep: 2,
+  },
+  {
+    profile: {
+      name: "Jane Smith",
+      profileImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtsSbrsoLNPyAUwVkiNfnQsf6d-xPwtXjDZ-NGyZxzHQ&s",
+      employeeId: "9867543210",
+    },
+    id: 3,
+    email: "jane.smith@example.com",
+    grade: "G6",
+    experience: "20 years",
+    status: requestStatus.REJECTED,
+    designation: "Senior Software Engineer",
+    phone: "+1 9012345678",
+    reportingManager: "Christopher Davis",
+    projects: "ABC Corp, LMN Corp",
+    requestStatusStep: 2,
+  },
+  {
+    profile: {
+      name: "Joey Smith",
+      profileImage:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtsSbrsoLNPyAUwVkiNfnQsf6d-xPwtXjDZ-NGyZxzHQ&s",
+      employeeId: "98768743210",
+    },
+    id: 3,
+    email: "joey.smith@example.com",
+    grade: "G6",
+    experience: "10 years",
+    status: requestStatus.APPROVED,
     designation: "Senior Software Engineer",
     phone: "+1 9012345678",
     reportingManager: "Christopher Davis",

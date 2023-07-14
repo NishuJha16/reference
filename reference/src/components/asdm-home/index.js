@@ -8,15 +8,18 @@ import RejectedIcon from "../../icons/rejected.svg";
 import OpenIcon from "../../icons/pending.svg";
 import { Button } from "@mui/material";
 import CustomInput from "../input";
-
 import Card from "../card";
 import { useState } from "react";
 import ConfirmationModal from "../confirmation-modal";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 const AsdmHome = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const [showRequestModal, setShowRequestModal] = useState(false);
   const [employeeId, setEmployeeId] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <div className="asdm-home">
@@ -88,7 +91,30 @@ const AsdmHome = () => {
       <ConfirmationModal
         open={showRequestModal}
         title="Raise Request"
-        onCancel={() => setShowRequestModal(false)}
+        onCancel={() => {
+          setShowRequestModal(false);
+          setEmployeeId("");
+        }}
+        onConfirm={() => {
+          const selectedEmployee = raisedRetentionRequests.filter(
+            (request) => request.profile.employeeId === employeeId
+          );
+          selectedEmployee.length
+            ? navigate("/raise-request", {
+                state: {
+                  employeeId: employeeId,
+                },
+              })
+            : toast(
+                "Employee ID is incorrect. Please try with another Employee Id",
+                {
+                  hideProgressBar: true,
+                  type: "error",
+                  position: "top-center",
+                  autoClose: 5000,
+                }
+              );
+        }}
         confirmText="Next"
       >
         <div className="asdm-form">
@@ -99,6 +125,7 @@ const AsdmHome = () => {
             value={employeeId}
             onChange={(event) => setEmployeeId(event.target.value)}
             label="Employee ID*"
+            className="input"
           />
         </div>
       </ConfirmationModal>

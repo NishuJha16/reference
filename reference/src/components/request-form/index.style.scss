@@ -1,0 +1,47 @@
+.retention-request-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  margin: 2rem;
+
+  .next-button{
+    margin-right: 0;
+    display: flex;
+    gap: 1rem;
+    float: right;
+  }
+  #demo-radio-buttons-group-label{
+      font-size: 0.875rem;
+        font-weight: 500;
+        line-height: 1.5rem;
+        color: #101828;
+  }
+
+  .steps {
+    display: flex;
+    padding: 1rem;
+    gap: 1.5rem;
+    justify-content: space-between;
+    .header {
+      color: #667085;
+    }
+    .form {
+      border-radius: 0.5rem;
+      border: 1px solid #667085;
+      display: flex;
+      padding: 1rem;
+      flex-direction: column;
+      flex: 1;
+      gap: 1rem;
+      .section {
+        display: flex;
+        gap: 1.5rem;
+        .field {
+          flex: 1;
+        }
+      }
+    }
+  }
+}

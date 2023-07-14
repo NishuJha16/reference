@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import "./index.styles.scss";
 import RaisedRetentionRequests from "../../components/raised-retention-requests";
 import AsdmHome from "../../components/asdm-home";
+import HrbpHome from "../../components/hrbp-home";
 
 const Home = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -17,7 +18,8 @@ const Home = () => {
   return (
     <div className="home-page">
       <NavBar />
-      <AsdmHome />
+      {/* <AsdmHome /> */}
+      <HrbpHome />
     </div>
   );
 };

@@ -13,7 +13,7 @@ const steps = [
   "Approved/Rejected",
 ];
 
-const EmployeeDetails = ({ employeeDetails }) => {
+const EmployeeDetails = ({ employeeDetails, hideStepper = false }) => {
   return (
     <div className="emp-details">
       <div className="ed-wrapper">
@@ -40,21 +40,23 @@ const EmployeeDetails = ({ employeeDetails }) => {
           </div>
         </div>
       </div>
-      <div className="ed-wrapper">
-        <div className="header">Request Status</div>
-        <div className="ed-content">
-          <Stepper
-            activeStep={employeeDetails.requestStatusStep}
-            alternativeLabel
-          >
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
+      {!hideStepper && (
+        <div className="ed-wrapper">
+          <div className="header">Request Status</div>
+          <div className="ed-content">
+            <Stepper
+              activeStep={employeeDetails.requestStatusStep}
+              alternativeLabel
+            >
+              {steps.map((label) => (
+                <Step key={label}>
+                  <StepLabel>{label}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

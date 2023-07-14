@@ -3,15 +3,17 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  .welcome-text {
+
+   .welcome-text {
     color: $primary;
+    padding: 1.5rem !important;
     font-size: 1.5rem;
-    padding: 1.5rem;
     font-weight: 600;
     font-family: "Montserrat";
     display: flex;
     justify-content: space-between;
   }
+ 
   .charts {
     display: flex;
     gap: 2rem;
@@ -23,3 +25,22 @@
     }
   }
 }
+.input {
+  .MuiInputBase-root {
+    max-height: 40px;
+  }
+}
+.view-btn {
+  border: 1px solid $primary;
+  &:hover {
+    cursor: pointer;
+  }
+}
+ .welcome-text {
+    color: $primary;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: "Montserrat";
+    display: flex;
+    justify-content: space-between;
+  }

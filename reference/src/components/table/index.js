@@ -46,6 +46,13 @@ const CustomTable = ({ columns, rows, onRowClick }) => {
             </TableRow>
           </TableHead>
           <TableBody>
+            {!rows.length && (
+              <TableRow>
+                <TableCell colspan="5" style={{ "text-align": "center" }}>
+                  No Data Found
+                </TableCell>
+              </TableRow>
+            )}
             {rows
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => {

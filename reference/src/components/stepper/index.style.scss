@@ -1,0 +1,33 @@
+@import "../../helpers/variables.scss";
+.stepper-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  .step {
+    position: relative;
+    .title {
+      position: absolute;
+      display: flex;
+      top: 0.25rem;
+      right: 25%;
+      flex-direction: column;
+      color: #101828;
+      .title-bold {
+        font-weight: 500;
+        font-size: 1rem;
+      }
+      .hint {
+        font-size: 0.875rem;
+      }
+    }
+  }
+  .active {
+    img {
+      filter: invert(38%) sepia(77%) saturate(5075%) hue-rotate(200deg)
+        brightness(100%) contrast(89%);
+    }
+    .title {
+      color: #ffffff !important;
+    }
+  }
+}
