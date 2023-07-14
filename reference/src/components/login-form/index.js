@@ -28,7 +28,6 @@ const LoginForm = () => {
         (user.email === userName || user.employeeId === userName) &&
         user.password === password
     );
-    console.log(isValidUser);
     if (isValidUser.length) {
       navigate("/");
       localStorage.setItem("user", JSON.stringify(isValidUser[0]));
@@ -59,7 +58,7 @@ const LoginForm = () => {
           <TextField
             onChange={(event) => setUserName(event.target.value)}
             value={userName}
-            // label="Employee ID/ Email"
+            label="Employee ID/ Email"
             variant="outlined"
             size="small"
           />
@@ -70,7 +69,6 @@ const LoginForm = () => {
             variant="outlined"
             size="small"
             type={showPassword ? "text" : "password"}
-            shrink={true}
             InputProps={{
               endAdornment: (
                 <InputAdornment position="end">

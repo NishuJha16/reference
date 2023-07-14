@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import EmployeeDetails from "../employee-details";
 import "./index.style.scss";
-import { raisedRetentionRequests } from "../../dummy-data/asdm.meta";
+import { validEmployees } from "../../dummy-data/asdm.meta";
 import NavBar from "../navbar";
 import { useState } from "react";
 import StepOne from "./stepOne";
@@ -10,10 +10,11 @@ import StepThree from "./stepThree";
 import { toast } from "react-toastify";
 import Stepper from "../stepper";
 import { useEffect } from "react";
+import { requestStatus } from "../../helpers/constants";
 
 const RetentionRequestForm = () => {
   const { state } = useLocation();
-  const selectedEmployee = raisedRetentionRequests?.filter(
+  const selectedEmployee = validEmployees?.filter(
     (request) => request?.profile?.employeeId === state?.employeeId
   );
 
@@ -47,7 +48,15 @@ const RetentionRequestForm = () => {
         position: "top-center",
       }
     );
-    navigate("/");
+    navigate("/", {
+      state: {
+        employee: {
+          ...selectedEmployee[0],
+          status: requestStatus.OPEN,
+          requestStatusStep: 1,
+        },
+      },
+    });
   };
 
   return selectedEmployee.length ? (

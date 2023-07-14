@@ -48,20 +48,20 @@ const CustomTable = ({ columns, rows, onRowClick }) => {
           <TableBody>
             {!rows.length && (
               <TableRow>
-                <TableCell colspan="5" style={{ "text-align": "center" }}>
+                <TableCell colSpan="5" style={{ "text-align": "center" }}>
                   No Data Found
                 </TableCell>
               </TableRow>
             )}
             {rows
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
+              .map((row, index) => {
                 return (
                   <TableRow
                     hover
                     role="checkbox"
                     tabIndex={-1}
-                    key={row.code}
+                    key={index}
                     onClick={() => onRowClick?.(row)}
                   >
                     {columns.map((column) => {

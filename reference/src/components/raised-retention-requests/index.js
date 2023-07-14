@@ -72,7 +72,7 @@ const cellFormatter = (rows) => {
   }));
 };
 
-const RaisedRetentionRequests = () => {
+const RaisedRetentionRequests = ({ employeeData }) => {
   const [searchText, setSearchText] = useState("");
   const [currentRetentionRequests, setCurrentRetentionRequests] = useState(
     raisedRetentionRequests
@@ -91,6 +91,11 @@ const RaisedRetentionRequests = () => {
     );
     setCurrentRetentionRequests(filteredRequest);
   }, [searchText]);
+
+  useEffect(() => {
+    !!employeeData &&
+      setCurrentRetentionRequests((prevState) => [employeeData, ...prevState]);
+  }, [employeeData]);
 
   const clearSearch = () => {
     setSearchText("");

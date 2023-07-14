@@ -1,7 +1,10 @@
 import "./index.style.scss";
 import RequestPieChart from "../pie-chart";
 import RaisedRetentionRequests from "../raised-retention-requests";
-import { raisedRetentionRequests } from "../../dummy-data/asdm.meta";
+import {
+  raisedRetentionRequests,
+  validEmployees,
+} from "../../dummy-data/asdm.meta";
 import { requestStatus } from "../../helpers/constants";
 import ApprovedIcon from "../../icons/approved.svg";
 import RejectedIcon from "../../icons/rejected.svg";
@@ -11,15 +14,16 @@ import CustomInput from "../input";
 import Card from "../card";
 import { useState } from "react";
 import ConfirmationModal from "../confirmation-modal";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const AsdmHome = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const [showRequestModal, setShowRequestModal] = useState(false);
-  const [employeeId, setEmployeeId] = useState(null);
+  const [employeeId, setEmployeeId] = useState("");
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   return (
     <div className="asdm-home">
@@ -86,7 +90,7 @@ const AsdmHome = () => {
         </div>
       </div>
       <div className="request-table">
-        <RaisedRetentionRequests />
+        <RaisedRetentionRequests employeeData={state?.employee} />
       </div>
       <ConfirmationModal
         open={showRequestModal}
@@ -96,7 +100,7 @@ const AsdmHome = () => {
           setEmployeeId("");
         }}
         onConfirm={() => {
-          const selectedEmployee = raisedRetentionRequests.filter(
+          const selectedEmployee = validEmployees.filter(
             (request) => request.profile.employeeId === employeeId
           );
           selectedEmployee.length
@@ -106,7 +110,7 @@ const AsdmHome = () => {
                 },
               })
             : toast(
-                "Employee ID is incorrect. Please try with another Employee Id",
+                "Employee ID is incorrect or Request is already raised. Please try with another Employee Id",
                 {
                   hideProgressBar: true,
                   type: "error",

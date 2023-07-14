@@ -14,6 +14,13 @@ const StepOne = ({ onNextClick }) => {
     setStepOneData((prevState) => ({ ...prevState, [key]: value }));
   };
 
+  const isValid =
+    stepOneData?.tsr &&
+    stepOneData?.grade &&
+    stepOneData?.performanceRating &&
+    stepOneData?.experience &&
+    stepOneData?.billingType;
+
   return (
     <div>
       <div className="steps">
@@ -93,6 +100,7 @@ const StepOne = ({ onNextClick }) => {
       </div>
       <Button
         variant="contained"
+        disabled={!isValid}
         className="next-button"
         onClick={() => {
           onNextClick({ stepOneData: stepOneData });

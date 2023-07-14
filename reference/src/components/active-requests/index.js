@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { requestStatus } from "../../helpers/constants";
+import RequestDetailModal from "../request-detail-modal";
 
 const formatStatus = (status) => {
   switch (status) {
@@ -102,18 +103,13 @@ const activeCellFormatter = (rows) => {
         </div>
       </div>
     ),
-    status: (
-      <Tag
-        text="View Details"
-        customClass="view-btn"
-        onClick={() => console.log(row)}
-      />
-    ),
+    status: <Tag text="View Details" customClass="view-btn" />,
   }));
 };
 
 const ActiveAndPastRetentionRequests = ({ statusStep }) => {
   const [status, setStatus] = useState("active");
+  const [selectedData, setSelectedData] = useState(null);
 
   const getActiveRequests = () => {
     return raisedRetentionRequests.filter(
@@ -135,7 +131,7 @@ const ActiveAndPastRetentionRequests = ({ statusStep }) => {
   const [pastRequests, setPastRequests] = useState(getPastRequests());
 
   useEffect(() => {
-    const data = status === "active" ? getActiveRequests() : getPastRequests();
+    const data = status === "active" ? activeRequests : pastRequests;
     const filteredRequest = data?.filter(
       (request) =>
         request?.profile?.name
@@ -154,6 +150,21 @@ const ActiveAndPastRetentionRequests = ({ statusStep }) => {
     setSearchText("");
     setActiveRequests(getActiveRequests());
     setPastRequests(getPastRequests());
+  };
+
+  const handleRequestStatusChange = (modifiedData) => {
+    const data = status === "active" ? activeRequests : pastRequests;
+    const filteredRequest = data?.filter(
+      (request) => request.id !== selectedData.id
+    );
+    if (status === "active") {
+      setActiveRequests(filteredRequest);
+      setPastRequests((prevState) => [modifiedData, ...prevState]);
+    } else {
+      setPastRequests(filteredRequest);
+      setActiveRequests((prevState) => [modifiedData, ...prevState]);
+    }
+    setSelectedData(null);
   };
 
   return (
@@ -203,12 +214,33 @@ const ActiveAndPastRetentionRequests = ({ statusStep }) => {
       {status === "active" ? (
         <CustomTable
           columns={activeRequestColumns}
+          onRowClick={(row) =>
+            setSelectedData(
+              activeRequests.filter((data) => data.email === row.email)[0]
+            )
+          }
           rows={activeCellFormatter(activeRequests)}
         />
       ) : (
         <CustomTable
           columns={pastRequestColumns}
+          onRowClick={(row) =>
+            setSelectedData(
+              pastRequests.filter((data) => data.email === row.email)[0]
+            )
+          }
           rows={pastCellFormatter(pastRequests)}
+        />
+      )}
+      {selectedData && (
+        <RequestDetailModal
+          employeeDetails={selectedData}
+          onConfirm={handleRequestStatusChange}
+          raisedBy="Abhishek shettigar"
+          designation="Application Services Delivery Manager"
+          open={selectedData}
+          requestId={"6876868686"}
+          onClose={() => setSelectedData(null)}
         />
       )}
     </div>

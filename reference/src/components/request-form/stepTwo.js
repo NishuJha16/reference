@@ -14,6 +14,13 @@ const StepTwo = ({ onNextClick, onPrevClick }) => {
     setStepTwoData((prevState) => ({ ...prevState, [key]: value }));
   };
 
+  const isValid =
+    stepTwoData?.lastDate &&
+    stepTwoData?.currentBillRate &&
+    stepTwoData?.currentMargin &&
+    stepTwoData?.newBillRate &&
+    stepTwoData?.newMargin;
+
   return (
     <div>
       <div className="steps">
@@ -131,6 +138,7 @@ const StepTwo = ({ onNextClick, onPrevClick }) => {
         <Button
           variant="contained"
           className="next-button"
+          disabled={!isValid}
           onClick={() => {
             onNextClick({ stepTwoData: stepTwoData });
           }}

@@ -21,17 +21,37 @@ const NavBar = () => {
     }
 
   return (
-    <div className='navbar'>
-        <img src={NavLogo} alt="logo"/>
-        <div className='right-section'>
-            <img src={user?.profileImage} alt="profile" className='profile'/>
-            <img src={Logout} alt="logout" onClick={handleLogout} className='logout'/>
-            {open && <ConfirmationModal confirmText="Log out" title="Log out" onConfirm={onLogout} open={open} onCancel={()=> setOpen(false)}>
-                <Typography variant='h7'>Are you sure you want to Log out?</Typography>
-            </ConfirmationModal>}
-        </div>
+    <div className="navbar">
+      <img
+        src={NavLogo}
+        alt="logo"
+        className="logo"
+        onClick={() => navigate("/")}
+      />
+      <div className="right-section">
+        <img src={user?.profileImage} alt="profile" className="profile" />
+        <img
+          src={Logout}
+          alt="logout"
+          onClick={handleLogout}
+          className="logout"
+        />
+        {open && (
+          <ConfirmationModal
+            confirmText="Log out"
+            title="Log out"
+            onConfirm={onLogout}
+            open={open}
+            onCancel={() => setOpen(false)}
+          >
+            <Typography variant="h7">
+              Are you sure you want to Log out?
+            </Typography>
+          </ConfirmationModal>
+        )}
+      </div>
     </div>
-  )
+  );
 }
 
 export default NavBar
